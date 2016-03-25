@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'assignations#index'
+  put '/restart', to: 'assignations#restart'
   resources :assignations
   resources :invitations
   devise_for :users

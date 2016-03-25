@@ -1,15 +1,94 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body{
+  background-color: #343d46;
+  color:black;
+  text-align: center;
+  font-family: Arial;
+  margin: 0;
+}
+
+/*nav bar style*/
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #343d46;
+    top: 0;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom:0;
+
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+
+}
+
+li.login{
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: right;
+  border-right: 3px solid #419873;
+}
+
+li a:hover {
+  background-color: black;
+  margin:0;
+}
+
+/* sub nav bar style */
+
+ul.submenu{
+  list-style-type: none;
+  background-color: #65737e;
+  margin-top: 0;
+  margin-bottom:5%;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+li.submenu{
+    float: left;
+}
+
+li a.submenu {
+  text-decoration: none;
+  margin-left: 0;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  display: block;
+  font: 17px/1 Helvetica, Verdana, sans-serif;
+}
+
+a:hover.side-menu{
+  background-color: #36454f;
+  padding: 10px;
+  margin-left: 0;
+}
+
+/*current site coloring*/
+body.assignation a.assignation:link,
+body.invitation a.invitation:link{
+	color: white ;
+	background-color: #419873;
+}
+
+body.assignation a.assignation:hover,
+body.invitation a.invitation:hover{
+	color: white ;
+	background-color: #419873;
+}

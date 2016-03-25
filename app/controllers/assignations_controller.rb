@@ -3,4 +3,8 @@ class AssignationsController < ApplicationController
     @assignations = Assignation.all
   end
 
+  def restart
+    CreateScheduleWorker.new.perform
+    redirect_to root_path
+  end
 end
