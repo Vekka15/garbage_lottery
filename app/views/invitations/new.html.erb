@@ -1,3 +1,9 @@
+
+<%if @new_invitation.errors.any? %>
+  <% @new_invitation.errors.each do |attr,msg|  %>
+  <center><div class="message-box"><%=msg%></div></center> <!-- displaying error messages -->
+  <% end %>
+<%end%>
 <%= form_for @new_invitation do |i| %>
  <%= i.label "Email" %>
  <%= i.text_field :email %>

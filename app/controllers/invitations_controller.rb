@@ -8,9 +8,9 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
-    if @invitation.save
-      InvitationMailer.send_invitation(@invitation).deliver_now
+    @new_invitation = Invitation.new(invitation_params)
+    if @new_invitation.save
+      InvitationMailer.send_invitation(@new_invitation).deliver_now
       redirect_to root_path
     else
       render 'new'
