@@ -29,6 +29,11 @@ gem 'devise'
 
 gem "sidekiq"
 
+gem 'rspec', '~> 3.4'
+
+gem 'factory_girl_rails'
+gem 'rspec-rails', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
