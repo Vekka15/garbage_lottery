@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.3.0
+env:
+  - DB=postgresql
+before_script:
+  - psql -c "CREATE USER vekka WITH PASSWORD 'prosiak098';" -U postgres
+  - psql -c 'create database garbage_lottery_test;' -U postgres
+  - psql -c 'alter user vekka with superuser;' -U postgres #fixing fixtures problem in travis CI
+
+script:
+   - RAILS_ENV=test bundle exec rake db:create --trace
+   - RAILS_ENV=test bundle exec rake db:migrate --trace
+  #  - bundle exec rake test

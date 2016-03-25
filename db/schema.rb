@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325114220) do
+ActiveRecord::Schema.define(version: 20160325155336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assigantions", force: :cascade do |t|
+  create_table "assignations", force: :cascade do |t|
     t.date     "day"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "assigantions", ["user_id"], name: "index_assigantions_on_user_id", using: :btree
+  add_index "assignations", ["user_id"], name: "index_assignations_on_user_id", using: :btree
 
   create_table "invitations", force: :cascade do |t|
     t.string   "email"
@@ -50,5 +50,5 @@ ActiveRecord::Schema.define(version: 20160325114220) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "assigantions", "users"
+  add_foreign_key "assignations", "users"
 end
