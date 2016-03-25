@@ -1,6 +1,10 @@
 class AssignationsController < ApplicationController
   def index
-    @assignations = Assignation.all
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      @assignations = Assignation.all
+    end
   end
 
   def restart
