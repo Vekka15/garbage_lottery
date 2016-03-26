@@ -1,11 +1,20 @@
 class InvitationsController < ApplicationController
   def index
-    @invitations = Invitation.all
-    @user = User.all
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      @invitations = Invitation.all
+      @user = User.all
+    end
   end
 
   def new
-    @new_invitation = Invitation.new
+    # zabezpieczenie przez dostepem do formularza przez link bezposredni
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      @new_invitation = Invitation.new
+    end
   end
 
   def create

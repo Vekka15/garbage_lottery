@@ -18,7 +18,7 @@
       <li class="submenu"> <%= link_to("Restart", restart_path,method: :put, :class=>"submenu") %>
     </ul>
   <%elsif current_user.admin==nil%> <!-- diffrent nav bar for user -->
-    <ul class="pasek">
+    <ul class="pasek" style="margin-bottom: 5%">
     <li> <%= link_to("Schedule", assignations_path, :class => "assignation") %> </li>
     <li style="float: right;"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
     <li class="login"> You have signed in as, <span style="color: #419873;">  <%= current_user.email %></span> </li>

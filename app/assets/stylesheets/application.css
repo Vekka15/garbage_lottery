@@ -124,3 +124,11 @@ th{
   padding-left: 30px;
   padding-right: 30px;
 }
+
+/*data icon*/
+
+[data-icon]:before {
+  font-family: icons; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}

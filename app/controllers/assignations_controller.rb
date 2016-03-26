@@ -8,7 +8,7 @@ class AssignationsController < ApplicationController
   end
 
   def restart
-    CreateScheduleWorker.new.perform
-    redirect_to root_path
+      CreateScheduleWorker.new.perform
+      redirect_to root_path
   end
 end

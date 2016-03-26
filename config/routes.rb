@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   resources :assignations, only: [:index]
   resources :invitations, only: [:index, :new, :create]
   devise_for :users, :controllers => {:registrations => "users/registrations"}
-  # devise_for :users
-
 end

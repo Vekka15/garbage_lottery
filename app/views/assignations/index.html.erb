@@ -1,4 +1,9 @@
 <body>
+  <% if Assignation.where(day: Date.today).first.user_mail == current_user.email %>
+  <span style="color: #b62020; font-size: 20px; font-weight:bold; background-color: #fe8181;  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important; padding-left:10%; padding-right: 10%; padding-top: 10px; padding-bottom: 10px;" >
+    Today it is your turn to throw garbage away
+    </span>
+  <% end %>
   <table align="center" style="margin-top: 5%">
   <tr>
     <th>Monday</th>
@@ -13,13 +18,13 @@
 <%else %>
   <tr>
   <% @assignations.each do |a| %>
-    <td style="background-color: #52bf90"><%= a.day.strftime('%d-%m-%Y  ') %> </td>
+    <td style="background-color: #52bf90; color: white;"><%= a.day.strftime('%d-%m-%Y') %> </td>
   <%end%>
   </tr>
   <tr>
   <% @assignations.each do |a| %>
     <% if a.day<Date.today %>
-      <td style="background-color:rgba(0,0,0,0.5); color: rgba(0,0,0,0.25); padding-top: 50px;padding-bottom: 50px"><%= a.user_mail[/[^@]+/] %></td>
+      <td style="background-color:rgba(0,0,0,0.40); color: rgba(0,0,0,0.15); padding-top: 50px;padding-bottom: 50px"><%= a.user_mail[/[^@]+/] %></td>
     <%elsif a.day==Date.today%>
     <td style="background-color: #ff6f69; padding-top: 50px;padding-bottom: 50px"><%= a.user_mail[/[^@]+/] %></td>
     <%else%>
