@@ -86,5 +86,5 @@ Rails.application.configure do
     user_name: 'sendrefunds@gmail.com',
     password: 'admintest',
     authentication: 'plain',
-    enable_starttls_auto: true}
+    enable_starttls_auto: true} 
 end
