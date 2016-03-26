@@ -6,8 +6,8 @@
     <th> Status </th>
   </tr>
   <% if @invitations.empty? && User.where(invited: true).empty? %>
-  <tr rowspan="3">
-    <td> You have no invitations in history </td>
+  <tr>
+    <td colspan="3"> You have no invitations in history </td>
   </tr>
   <%end%>
 <% @user.each do |u| %>
