@@ -5,6 +5,11 @@
     <th> When </th>
     <th> Status </th>
   </tr>
+  <% if @invitations.empty? && User.where(invited: true).empty? %>
+  <tr>
+    <td> You have no invitations in history </td>
+  </tr>
+  <%end%>
 <% @user.each do |u| %>
   <% if !u.invited.nil? %>
   <tr>
