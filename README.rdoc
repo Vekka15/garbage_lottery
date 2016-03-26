@@ -1,3 +1,5 @@
 == GARBAGE LOTTERY {<img src="https://travis-ci.org/Vekka15/garbage_lottery.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Vekka15/garbage_lottery]
 
 Prosta aplikacja do planowania wyrzucania śmieci w firmie.
+
+Heroku: https://aqueous-sands-26728.herokuapp.com
