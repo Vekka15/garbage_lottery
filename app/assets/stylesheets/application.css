@@ -97,7 +97,7 @@ body.invitation a.invitation:hover{
 
 table, tr{
   width: 20px;
-  border:1px solid #ccc;
+  border:0px solid #ccc;
   border-collapse: collapse;
 
 }
@@ -105,9 +105,9 @@ table, tr{
 td{
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 60px;
-  padding-right: 60px;
-}
+  padding-left: 30px;
+  padding-right: 30px;
+  }
 
 table{
   box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
@@ -121,6 +121,6 @@ th{
   color: white;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
 }

@@ -7,9 +7,11 @@
   </tr>
 <% @user.each do |u| %>
   <% if !u.invited.nil? %>
-  <td><%= u.email %> </td>
-  <td><%= u.created_at %> </td>
-  <td>Accepted </td>
+  <tr>
+    <td><%= u.email %> </td>
+    <td><%= u.created_at %> </td>
+    <td>Accepted </td>
+  </tr>
   <%end%>
 <%end%>
 <% @invitations.each do |i| %>
