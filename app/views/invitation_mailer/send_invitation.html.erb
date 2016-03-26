@@ -2,6 +2,5 @@
 
 <div>If you want to accept and participate in website click link below: </div>
 
-<!-- <a href="http://localhost:3000/users/sign_up">Sign up</a> -->
-<%= link_to "here", :controller => "devise/registrations", :action => "new",
-:only_path => false, :invitation_id => @inv.email, :host => "localhost:3000" %>
+<%= link_to "Sign_up", controller: 'users/registrations', action: 'new',
+only_path: false, invitation_id: @inv.email, host: 'localhost:3000' %>

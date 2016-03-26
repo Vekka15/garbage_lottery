@@ -1,6 +1,7 @@
 class InvitationsController < ApplicationController
   def index
     @invitations = Invitation.all
+    @user = User.all
   end
 
   def new

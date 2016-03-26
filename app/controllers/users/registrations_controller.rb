@@ -1,34 +1,46 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  def invite
-  end
-# before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+before_filter :configure_sign_up_params, only: [:create]
+before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(user_params)
+    if !Invitation.where(email: @user.email).empty?
+      @user.invited = true
+      Invitation.where(email: @user.email).first.delete
+    end
+    if @user.save
+      sign_in @user
+      redirect_to root_path
+    else
+      render 'devise/registrations/new'
+    end
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -42,9 +54,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+  def configure_sign_up_params
+     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password) }
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

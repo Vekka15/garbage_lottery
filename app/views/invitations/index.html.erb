@@ -1,3 +1,25 @@
-<% @invitations.each do |i| %>
-  <div>Kto: <%= i.email %> </div>
+<body>
+<table align="center" style="margin-top: 5%">
+  <tr>
+    <th> User </th>
+    <th> When </th>
+    <th> Status </th>
+  </tr>
+<% @user.each do |u| %>
+  <% if !u.invited.nil? %>
+  <td><%= u.email %> </td>
+  <td><%= u.created_at %> </td>
+  <td>Accepted </td>
+  <%end%>
 <%end%>
+<% @invitations.each do |i| %>
+  <tr>
+    <td><%= i.email %> </td>
+    <td><%= i.created_at %> </td>
+    <% if User.where(email: i.email).empty? %>
+      <td> Waiting</td>
+    <%end%>
+  </tr>
+<%end%>
+</table>
+</body>

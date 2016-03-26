@@ -92,3 +92,35 @@ body.invitation a.invitation:hover{
 	color: white ;
 	background-color: #419873;
 }
+
+/* table style*/
+
+table, tr{
+  width: 20px;
+  border:1px solid #ccc;
+  border-collapse: collapse;
+
+}
+
+td{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+table{
+  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2}
+
+
+th{
+  background-color: #419873;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
