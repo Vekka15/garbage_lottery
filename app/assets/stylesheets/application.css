@@ -82,13 +82,15 @@ a:hover.side-menu{
 
 /*current site coloring*/
 body.assignation a.assignation:link,
-body.invitation a.invitation:link{
+body.invitation a.invitation:link,
+body.user a.user:link{
 	color: white ;
 	background-color: #419873;
 }
 
 body.assignation a.assignation:hover,
-body.invitation a.invitation:hover{
+body.invitation a.invitation:hover
+body.user a.user:hover{
 	color: white ;
 	background-color: #419873;
 }
