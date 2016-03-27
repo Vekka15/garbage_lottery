@@ -8,7 +8,7 @@ body{
 
 /*nav bar style*/
 
-ul{
+ul.pasek{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -21,11 +21,11 @@ ul{
 
 }
 
-li{
+ul.pasek li{
     float: left;
 }
 
-li a{
+ul.pasek li a{
     display: block;
     color: white;
     text-align: center;
@@ -35,7 +35,7 @@ li a{
 
 }
 
-li.login{
+ul.pasek li.login{
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -55,7 +55,7 @@ ul.submenu{
   list-style-type: none;
   background-color: #65737e;
   margin-top: 0;
-  margin-bottom:5%;
+  margin-bottom:0;
   margin-left: 0;
   overflow: hidden;
 }
@@ -79,6 +79,46 @@ a:hover.side-menu{
   padding: 10px;
   margin-left: 0;
 }
+
+/* vertical admin nav bar */
+
+ul.admin-menu{
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li.admin-menu{
+
+}
+
+.mail:hover{
+  /*padding-left: 5%;
+  padding-right: 5%;*/
+  /*padding-left: 50px;
+  padding-right: 50px;*/
+  background-color: green;
+}
+
+/*img.mail:hover{
+  padding-left: 50px;
+  padding-right: 50px;
+    background-color: green;
+}*/
+
+.mail{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding: 50px;
+  /*background: url('/assets/mail.png');*/
+  display: inline-block;
+}
+
 
 /*current site coloring*/
 body.assignation a.assignation:link,

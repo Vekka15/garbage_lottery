@@ -14,7 +14,13 @@
     <li style="float: right;"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
     <li class="login"> You have signed in as,<span style="color: #419873;"> admin</span></li>
     </ul>
-    <ul class="submenu">
+    <!-- side vertical menu -->
+    <ul class="admin-menu">
+      <!-- <li><%= image_tag("mail.png", size: "75") %></li> -->
+      <li><%= image_tag("mail.png", size: "75") %><br> <%= link_to("Invitations", invitations_path) %> </li>
+      <li> <%= link_to("Users", users_path, :class => "user") %> </li>
+    </ul>
+    <ul class="submenu"  style="margin-left: 15%">
             <li class="submenu"> <%= link_to("List", users_path,:class=>"submenu") %> </li><li class="submenu"> <%= link_to("Add", new_user_path,:class=>"submenu") %> </li>
     </ul>
   <%elsif current_user.admin==nil%> <!-- diffrent nav bar for user -->
