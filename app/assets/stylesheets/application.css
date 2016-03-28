@@ -87,50 +87,69 @@ ul.admin-menu{
     margin: 0;
     padding: 0;
     width: 15%;
-    background-color: #f1f1f1;
+    background-color: #88b7d5;
     position: fixed;
     height: 100%;
-    overflow: auto;
+
 }
 
-li.admin-menu{
-
+.mail{
+    text-decoration: none;
+    color: black;
 }
 
 .mail:hover{
-  /*padding-left: 5%;
-  padding-right: 5%;*/
-  /*padding-left: 50px;
-  padding-right: 50px;*/
-  background-color: green;
-}
-
-/*img.mail:hover{
-  padding-left: 50px;
-  padding-right: 50px;
-    background-color: green;
-}*/
-
-.mail{
-  padding-left: 50px;
-  padding-right: 50px;
-  padding: 50px;
-  /*background: url('/assets/mail.png');*/
   display: inline-block;
+  text-decoration: none;
+  background-color: #88b7d5;
 }
+
+.arrow_box,
+.user {
+	position: relative;
+	background: #88b7d5;
+  margin-bottom: 10%;
+}
+.arrow_box:after, .arrow_box:before,
+.user:after, .user:before {
+	left: 64%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+body.invitation .arrow_box:after,
+body.user .user:after{
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: white;
+	border-width: 30px;
+	margin-top: -30px;
+}
+body.invitation .arrow_box:after,
+body.user .user:after{
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: white;
+	border-width: 36px;
+	margin-top: -36px;
+}
+
 
 
 /*current site coloring*/
 body.assignation a.assignation:link,
-body.invitation a.invitation:link,
-body.user a.user:link{
+body.invitation a.admin:link,
+body.user a.admin:link{
 	color: white ;
 	background-color: #419873;
 }
 
 body.assignation a.assignation:hover,
-body.invitation a.invitation:hover
-body.user a.user:hover{
+body.invitation a.admin:hover
+body.user a.admin:hover{
 	color: white ;
 	background-color: #419873;
 }
