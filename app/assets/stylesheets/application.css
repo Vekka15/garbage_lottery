@@ -30,9 +30,11 @@ ul.pasek li a{
     color: white;
     text-align: center;
     padding: 14px 16px;
+    padding-top: 14px;
+    padding-bottom: 16px;
     text-decoration: none;
     margin: 0;
-
+    font-size: 17px;
 }
 
 ul.pasek li.login{
@@ -52,8 +54,7 @@ li a:hover {
 /* sub nav bar style */
 
 ul.submenu{
-  position: fixed;
-  top: 47px;
+  /*position: fixed;*/
   list-style-type: none;
   background-color: #65737e;
   margin: 0;
@@ -90,7 +91,8 @@ ul.admin-menu{
     background-color: #88b7d5;
     position: fixed;
     height: 100%;
-
+    /*z-index: -1;*/
+    top: 50px;
 }
 
 .mail{
