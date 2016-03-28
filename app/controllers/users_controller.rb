@@ -8,15 +8,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if !Invitation.where(email: @user.email).empty?
-      @user.invited = true
-      Invitation.where(email: @user.email).first.delete
+    @new_user = User.new(user_params)
+    if !Invitation.where(email: @new_user.email).empty?
+      @new_user.invited = true
+      Invitation.where(email: @new_user.email).first.delete
     end
-    if @user.save
+    if @new_user.save
       redirect_to root_path
     else
-      render 'devise/registrations/new'
+      if params[:user][:admin_add].to_s=="true"
+        render 'users/new'
+      else
+        render 'devise/registrations/new'
+      end
     end
   end
 

@@ -5,11 +5,11 @@
   <center><div class="message-box"><%=msg%></div></center> <!-- displaying error messages -->
   <% end %>
 <%end%>
+<br>
 <%= form_for @new_invitation do |i| %>
  <%= i.label "Email", class: "labels"%><br>
- <%= i.text_field :email, class: "text_field" %>
-<br>
- <%= i.submit "Send", class: "login_submit" %>
+ <div><%= i.text_field :email, class: "text_field" %> </div>
+ <div><%= i.submit "Send", class: "login_submit" %></div>
 
 <%end%>
 </div>

@@ -2,7 +2,6 @@ class CreateScheduleWorker < AssignationsController
   include Sidekiq::Worker
 
   def perform
-    puts "dziala"
     all_users = User.all
     all_invitations = Invitation.all
     all_assignations = Assignation.all

@@ -1,28 +1,32 @@
 <div style="margin-top: 10%">
-<%= form_for @new_user do |f| %>
+  <%if @new_user.errors.any? %>
+    <% @new_user.errors.each do |attr,msg|  %>
+    <center><div class="message-box"><span style="text-transform: capitalize;"><%=attr%></span> <%= msg%></div></center>
+    <% end %>
+  <%end%>
+  <%= form_for @new_user do |f| %>
+    <%= f.hidden_field :admin_add, value: "true" %>
+    <div class="field">
+      <%= f.label :email, class: "labels" %><br />
+      <%= f.email_field :email, class: "text_field", autofocus: true %>
+    </div>
 
-<div class="field">
-  <%= f.label :email, class: "labels" %><br />
-  <%= f.email_field :email, class: "text_field", autofocus: true %>
-</div>
+    <div class="field">
+      <%= f.label :password, class: "labels", style: "margin-left: 3%;" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class: "text_field", autocomplete: "off" %>
+    </div>
 
+    <div class="field">
+      <%= f.label :password_confirmation, class: "labels", style: "margin-left: 14%" %><br />
+      <%= f.password_field :password_confirmation, class: "text_field", autocomplete: "off" %>
+    </div>
 
-<div class="field">
-<%= f.label :password, class: "labels", style: "margin-left: 3%;" %>
-<% if @minimum_password_length %>
-<em>(<%= @minimum_password_length %> characters minimum)</em>
-<% end %><br />
-<%= f.password_field :password, class: "text_field", autocomplete: "off" %>
-</div>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "login_submit" %>
+    </div>
 
-<div class="field">
-<%= f.label :password_confirmation, class: "labels", style: "margin-left: 14%" %><br />
-<%= f.password_field :password_confirmation, class: "text_field", autocomplete: "off" %>
-</div>
-
-<div class="actions">
-<%= f.submit "Sign up", class: "login_submit" %>
-</div>
-
-<% end %>
+  <% end %>
 </div>
