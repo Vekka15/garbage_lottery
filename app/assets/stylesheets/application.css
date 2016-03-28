@@ -9,6 +9,7 @@ body{
 /*nav bar style*/
 
 ul.pasek{
+    position: fixed;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,13 +17,12 @@ ul.pasek{
     background-color: #343d46;
     top: 0;
     width: 100%;
-    margin-top: 0;
-    margin-bottom:0;
 
 }
 
 ul.pasek li{
     float: left;
+    margin:0;
 }
 
 ul.pasek li a{
@@ -52,11 +52,11 @@ li a:hover {
 /* sub nav bar style */
 
 ul.submenu{
+  position: fixed;
+  top: 47px;
   list-style-type: none;
   background-color: #65737e;
-  margin-top: 0;
-  margin-bottom:0;
-  margin-left: 0;
+  margin: 0;
   overflow: hidden;
 }
 

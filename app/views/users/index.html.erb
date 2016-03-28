@@ -1,5 +1,18 @@
 <body>
-<% @all_users.each do |u| %>
-  <div><%=u.email %></div>
-<%end%>
+  <table align="center" style="margin-top: 5%">
+    <tr>
+      <th>Email</th>
+      <th>Visit count</th>
+      <th>Last visit</th>
+      <th>Created</th>
+    </tr>
+    <% @all_users.each do |u| %>
+      <tr>
+        <td><%=u.email %></td>
+        <td><%=u.sign_in_count %></td>
+        <td><%=u.last_sign_in_at %></td>
+        <td><%=u.created_at%></td>
+      </tr>
+    <%end%>
+  </table>
 </body>
