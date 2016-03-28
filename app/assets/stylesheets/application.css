@@ -89,11 +89,10 @@ ul.admin-menu{
   list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 15%;
+    width: 197px;
     background-color: #88b7d5;
     position: fixed;
     height: 100%;
-    /*z-index: -1;*/
     top: 50px;
 }
 
@@ -116,7 +115,7 @@ ul.admin-menu{
 }
 .arrow_box:after, .arrow_box:before,
 .user:after, .user:before {
-	left: 64%;
+	left: 130px;
 	top: 50%;
 	border: solid transparent;
 	content: " ";
