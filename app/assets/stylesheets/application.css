@@ -54,7 +54,9 @@ li a:hover {
 /* sub nav bar style */
 
 ul.submenu{
-  /*position: fixed;*/
+  top: 50px;
+  width: 100%;
+  position: fixed;
   list-style-type: none;
   background-color: #65737e;
   margin: 0;
