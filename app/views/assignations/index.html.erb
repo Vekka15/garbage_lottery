@@ -1,10 +1,11 @@
 <body>
   <% if Assignation.where(day: Date.today).first.user_mail == current_user.email %>
-  <span style="color: #b62020; font-size: 20px; font-weight:bold; background-color: #fe8181;  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important; padding-left:10%; padding-right: 10%; padding-top: 10px; padding-bottom: 10px;" >
+<div style="margin-top: 10%">  <span style="color: #b62020; font-size: 20px; font-weight:bold; background-color: #fe8181;  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important; padding-left:10%; padding-right: 10%; padding-top: 10px; padding-bottom: 10px;" >
     Today it is your turn to throw garbage away
-    </span>
+  </span></div>
   <% end %>
-  <table align="center" style="margin-top: 5%">
+
+  <table align="center" style="margin-top: 10%">
   <tr>
     <th>Monday</th>
     <th>Tusday </th>
@@ -35,4 +36,5 @@
 
 <%end%>
 </table>
+
 </body>

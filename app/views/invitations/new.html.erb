@@ -1,13 +1,16 @@
-
+<body >
+  <div style="margin-top: 10%">
 <%if @new_invitation.errors.any? %>
   <% @new_invitation.errors.each do |attr,msg|  %>
   <center><div class="message-box"><%=msg%></div></center> <!-- displaying error messages -->
   <% end %>
 <%end%>
 <%= form_for @new_invitation do |i| %>
- <%= i.label "Email" %>
- <%= i.text_field :email %>
-
- <%= i.submit %>
+ <%= i.label "Email", class: "labels"%><br>
+ <%= i.text_field :email, class: "text_field" %>
+<br>
+ <%= i.submit "Send", class: "login_submit" %>
 
 <%end%>
+</div>
+</body>

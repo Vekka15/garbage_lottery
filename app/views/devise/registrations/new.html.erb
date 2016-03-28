@@ -1,32 +1,31 @@
-<h2>Sign up</h2>
+<h2 id="title">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <% if !params[:invitation_id].nil? %> <!--clicking in mail link automaticly sets email value in user registration -->
     <%= f.hidden_field :email, value: params[:invitation_id] %>
+    <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:invitation_id] %> </div>
+    <br>
   <%else%>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, class: "text_field",placeholder: "Email", autofocus: true %>
     </div>
   <%end%>
 
   <div class="field">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, class: "text_field",placeholder: "Password", autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, class: "text_field",placeholder: "Password confirmation", autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "login_submit" %>
   </div>
 <% end %>
 

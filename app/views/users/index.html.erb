@@ -1,17 +1,21 @@
 <body>
-  <table align="center" style="margin-top: 5%">
+  <table align="center" style="margin-top: 10%">
     <tr>
       <th>Email</th>
       <th>Visit count</th>
       <th>Last visit</th>
-      <th>Created</th>
+      <th>Created at</th>
     </tr>
     <% @all_users.each do |u| %>
       <tr>
         <td><%=u.email %></td>
         <td><%=u.sign_in_count %></td>
-        <td><%=u.last_sign_in_at %></td>
-        <td><%=u.created_at%></td>
+        <% if !u.last_sign_in_at.nil? %>
+          <td><%=u.last_sign_in_at.strftime('%d-%m-%Y') %></td>
+        <%else%>
+          <td>Never</td>
+        <%end%>
+        <td><%=u.created_at.strftime('%d-%m-%Y')%></td>
       </tr>
     <%end%>
   </table>

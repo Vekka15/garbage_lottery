@@ -1,5 +1,5 @@
 <body>
-<table align="center" style="margin-top: 5%">
+<table align="center" style="margin-top: 10%">
   <tr>
     <th> User </th>
     <th> When </th>
@@ -14,7 +14,7 @@
   <% if !u.invited.nil? %>
   <tr>
     <td><%= u.email %> </td>
-    <td><%= u.created_at %> </td>
+    <td><%= u.created_at.strftime('%d-%m-%Y') %> </td>
     <td>Accepted </td>
   </tr>
   <%end%>
