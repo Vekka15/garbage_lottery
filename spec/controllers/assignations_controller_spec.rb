@@ -15,13 +15,11 @@ RSpec.describe AssignationsController, type: :controller do
     end
   end
 
-  describe "POST #restart"
+  describe "POST #restart" do
     it "restart creating new assignations" do
       create(:user)
       post :restart
       expect(Assignation.count).to eq(7)
     end
   end
-
-
 end

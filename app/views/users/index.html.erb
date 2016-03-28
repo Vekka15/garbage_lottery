@@ -7,16 +7,18 @@
       <th>Created at</th>
     </tr>
     <% @all_users.each do |u| %>
-      <tr>
-        <td><%=u.email %></td>
-        <td><%=u.sign_in_count %></td>
-        <% if !u.last_sign_in_at.nil? %>
-          <td><%=u.last_sign_in_at.strftime('%d-%m-%Y') %></td>
-        <%else%>
-          <td>Never</td>
-        <%end%>
-        <td><%=u.created_at.strftime('%d-%m-%Y')%></td>
-      </tr>
+      <% if !u.admin==true %>
+        <tr>
+          <td><%=u.email %></td>
+          <td><%=u.sign_in_count %></td>
+          <% if !u.last_sign_in_at.nil? %>
+            <td><%=u.last_sign_in_at.strftime('%d-%m-%Y') %></td>
+          <%else%>
+            <td>Never</td>
+          <%end%>
+          <td><%=u.created_at.strftime('%d-%m-%Y')%></td>
+        </tr>
+      <%end%>
     <%end%>
   </table>
 </body>
