@@ -1,5 +1,7 @@
 <h2 id="title">Log in</h2>
-
+<%- flash.each do |name, msg| -%>
+    <center><div style="margin-bottom: 2%"><%= content_tag :div , msg, :id => ("flash_#{alert}" if msg.is_a?(String)), :class => "message-box"%></center>
+  <%- end -%>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.email_field :email, class: "text_field", placeholder: "Email", autofocus: true %>

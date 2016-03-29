@@ -1,7 +1,11 @@
 <h2 id="title">Sign up</h2>
-
+<%if @user.errors.any? %>
+  <% @user.errors.each do |attr,msg|  %>
+  <center><div class="message-box"><span style="text-transform: capitalize;"><%=attr%></span> <%= msg%></div></center>
+  <% end %>
+<%end%>
 <%= form_for(resource, as: resource_name,  url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+
   <% if !params[:invitation_id].nil? %> <!--clicking in mail link automaticly sets email value in user registration -->
     <%= f.hidden_field :email, value: params[:invitation_id] %>
     <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:invitation_id] %> </div>

@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       end
     end
      if user.destroy
-       InvitationMailer.send_notification_add(user).deliver_now
+       InvitationMailer.send_notification_delete(user).deliver_now
        redirect_to users_path
      else
        redirect_to root_path

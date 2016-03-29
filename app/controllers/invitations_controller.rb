@@ -13,7 +13,6 @@ class InvitationsController < ApplicationController
   end
 
   def new
-    # zabezpieczenie przez dostepem do formularza przez link bezposredni
     if current_user.nil?
       redirect_to root_path
     else
