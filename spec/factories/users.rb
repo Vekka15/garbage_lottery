@@ -3,4 +3,5 @@ FactoryGirl.define do
     f.email 'test@prograils.com'
     f.password 'testtest'
   end
+
 end
