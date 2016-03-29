@@ -16,10 +16,18 @@ before_filter :configure_account_update_params, only: [:update]
       Invitation.where(email: @user.email).first.delete
     end
     if @user.save
-      sign_in @user
-      redirect_to root_path
+      if params[:user][:admin_add].to_s=='true'
+        redirect_to root_path
+      else
+        sign_in @user
+        redirect_to root_path
+      end
     else
-      render 'devise/registrations/new'
+      if params[:user][:admin_add].to_s=='true'
+        render 'users/new'
+      else
+        render 'devise/registrations/new'
+      end
     end
   end
 
