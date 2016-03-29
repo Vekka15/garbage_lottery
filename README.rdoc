@@ -1,10 +1,10 @@
-== GARBAGE LOTTERY {<img src="https://travis-ci.org/Vekka15/garbage_lottery.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Vekka15/garbage_lottery]
+= GARBAGE LOTTERY {<img src="https://travis-ci.org/Vekka15/garbage_lottery.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Vekka15/garbage_lottery]
 
 Prosta aplikacja do planowania wyrzucania śmieci w firmie.
 
 Heroku: https://aqueous-sands-26728.herokuapp.com
 
-=admin
+==Admin
 
 Admin ma dostęp do kilku rzeczy do których zwykły użytkownik nie ma.
 Dla wygody i większej przejrzystości wszystkie takie opcje umieściłam w Admin Panelu.
@@ -27,6 +27,6 @@ Admin ma też możliwość usuwania użytkowników. Wiąże się to z sytuacją,
 
 Poza tym admin może przeglądać sobie jakieś podstawowe informacje o użytkownikach oraz zaproszeniach.
 
-=user
+==User
 
 Zwykły użytkownik nie ma praktycznie nic do roboty poza przejrzeniem planu. W momencie gdy jest jego kolej na wyrzucanie śmieci zostanie o tym poinformowany dużą czerwoną wiadomością.

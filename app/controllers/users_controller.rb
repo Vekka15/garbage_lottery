@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       Invitation.where(email: @new_user.email).first.delete
     end
     if @new_user.save
+      InvitationMailer.send_notification_add(@new_user).deliver_now
       redirect_to users_path
     else
       if params[:user][:admin_add].to_s=='true'
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
         chosen = rand(0..all_members - 1)
         if chosen < all_users.size
           a.update_attributes(user_mail: all_users[chosen].email)
-        else 
+        else
           invitation_number = all_members - chosen - 1
           a.update_attributes(user_mail: all_invitations[invitation_number].email)
         end
