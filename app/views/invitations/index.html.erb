@@ -15,16 +15,16 @@
   <tr>
     <td><%= u.email %> </td>
     <td><%= u.created_at.strftime('%d-%m-%Y') %> </td>
-    <td>Accepted </td>
+    <td><%= image_tag("yes.png", height: '40', width: '40') %></td>
   </tr>
   <%end%>
 <%end%>
 <% @invitations.each do |i| %>
   <tr>
     <td><%= i.email %> </td>
-    <td><%= i.created_at %> </td>
+    <td><%= i.created_at.strftime('%d-%m-%Y') %> </td>
     <% if User.where(email: i.email).empty? %>
-      <td> Waiting</td>
+      <td><%= image_tag("wait.png", height: '40', width: '40') %></td>
     <%end%>
   </tr>
 <%end%>

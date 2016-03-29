@@ -5,7 +5,7 @@
     <% end %>
   <%end%>
   <%= form_for @new_user do |f| %>
-    <%= f.hidden_field :admin_add, value: "true" %>
+    <%= f.hidden_field :admin_add, value: 'true' %>
     <div class="field">
       <%= f.label :email, class: "labels" %><br />
       <%= f.email_field :email, class: "text_field", autofocus: true %>

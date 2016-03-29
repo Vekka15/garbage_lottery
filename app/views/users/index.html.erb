@@ -5,6 +5,7 @@
       <th>Visit count</th>
       <th>Last visit</th>
       <th>Created at</th>
+      <th>Delete</th>
     </tr>
     <% @all_users.each do |u| %>
       <% if !u.admin==true %>
@@ -17,6 +18,11 @@
             <td>Never</td>
           <%end%>
           <td><%=u.created_at.strftime('%d-%m-%Y')%></td>
+          <td>
+            <%= link_to(user_path(u),method: :delete) do %>
+              <%= image_tag("no_green.png", height: '40', width: '40') %>
+            <% end %>
+          </td>
         </tr>
       <%end%>
     <%end%>
