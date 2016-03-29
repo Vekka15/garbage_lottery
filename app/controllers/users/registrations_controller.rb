@@ -10,16 +10,16 @@ before_filter :configure_account_update_params, only: [:update]
 
   # POST /resource
   def create
-    @user = User.new(user_params)
+    @new_user = User.new(user_params)
     if !Invitation.where(email: @user.email).empty?
-      @user.invited = true
+      @new_user.invited = true
       Invitation.where(email: @user.email).first.delete
     end
-    if @user.save
+    if @new_user.save
       if params[:user][:admin_add].to_s=='true'
-        redirect_to root_path
+        redirect_to users_path
       else
-        sign_in @user
+        sign_in @new_user
         redirect_to root_path
       end
     else
