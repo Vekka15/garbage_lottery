@@ -5,8 +5,8 @@ require 'rufus-scheduler'
 
 #scheduler is set to send mails always at forst day of month
  # scheduler.cron '0 0 * * 0' do
- scheduler.every '5m' do
-      puts "Test!------"
-      CreateScheduleWorker.new.perform
-      Rails.logger.info "running scheduler"
- end
+ # scheduler.every '5m' do
+ #      puts "Test!------"
+ #      CreateScheduleWorker.new.perform
+ #      Rails.logger.info "running scheduler"
+ # end

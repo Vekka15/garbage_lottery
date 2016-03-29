@@ -3,3 +3,30 @@
 Prosta aplikacja do planowania wyrzucania śmieci w firmie.
 
 Heroku: https://aqueous-sands-26728.herokuapp.com
+
+=admin
+
+Admin ma dostęp do kilku rzeczy do których zwykły użytkownik nie ma.
+Dla wygody i większej przejrzystości wszystkie takie opcje umieściłam w Admin Panelu.
+
+1) Restartowanie planu - które spowoduje bez względu na to jaki mamy dzień w tygodniu ponowne wylosowanie przydziałów na poszczególne dni.
+
+Dwie kolejne możliwości są ściśle administracyjne i nie mają większego związku z planem.
+
+2) Zapraszanie użytkowników.
+Wybrałam tutaj podejście gdzie administrator wpisuje adres email użytkownika którego chce zaprosić. Mogą to być tylko maile z domeną .prograils.com oraz takie dla którego nie istnieje użytkownik, ani inne zaproszenie.
+Po zaakceptowaniu na podany adres wysyłany jest mail z linkiem do zarejestrowania użytkownika oraz jednocześnie w podgladzie w panelu admina > invitations możemy zobaczyć utworzone zaproszenie wraz ze statusem, który w momencie powstania jest nieznany.  Od zwykłej rejestracji różni się on tym, że nie można zedytować maila. Adres na który zostało wysłane zaproszenie musi być mailem użytkownika. Wiąże się to z tym, że to jest dedykowane zaproszenie dla konkretnego pracownika i nie chcemy, żeby wysyłał on linki do innych pracowników.
+Po tym jak pracownik przeczyta zaproszenie, kliknie w link i ukończy rejestracje tworzy się jego konto, a zaproszenie w bazie danych zostaje usunięte. Jednocześnie status zaproszenia w panelu admina > invitations zmienia się na zaakceptowane.
+
+3) Dodawanie użytkowników.
+Dodałam też funkcjonalność, że admin może bezpośrednio dodawać użytkowników. Po przejściu do odpowiedniego formularza w panelu administratora admin może ustawić email użytkownika oraz jego hasło. Email ponownie podlega pełnej weryfikacji.
+Po zaakceptowaniu formularza, tworzony jest nowy użytkownik oraz na podany adres email przesyłana jest wiadomość o utworzeniu konta danemu pracownikowi wraz ze wszystkimi ważnymi informacjami.
+
+4) Usuwanie użytkowników.
+Admin ma też możliwość usuwania użytkowników. Wiąże się to z sytuacją, gdy jakiś pracownik zostaje zwolniony lub sam się zwalnia i nie będzie wyrzucać już śmieci. W takim wypadku admin klika na odpowiedni przycisk użytkownik zostaje usunięty, a w planie jego przypisy do poszczególnych dni zastąpione zostają innym nowo wylosowanych pracownikiem.
+
+Poza tym admin może przeglądać sobie jakieś podstawowe informacje o użytkownikach oraz zaproszeniach.
+
+=user
+
+Zwykły użytkownik nie ma praktycznie nic do roboty poza przejrzeniem planu. W momencie gdy jest jego kolej na wyrzucanie śmieci zostanie o tym poinformowany dużą czerwoną wiadomością.
