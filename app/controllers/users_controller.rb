@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
+  def add
     @new_user = User.new(user_params)
     if !Invitation.where(email: @new_user.email).empty?
       @new_user.invited = true
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
     if @new_user.save
       redirect_to root_path
     else
-      # if params[:user][:admin_add].to_s=='true'
-      #   render 'users/new'
-      # else
+      if params[:user][:admin_add].to_s=='true'
+        render 'users/new'
+      else
         render 'devise/registrations/new'
-      # end
+      end
     end
   end
 
