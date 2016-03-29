@@ -32,11 +32,11 @@ class UsersController < ApplicationController
     if @new_user.save
       redirect_to root_path
     else
-      if params[:user][:admin_add].to_s=='true'
-        render 'users/new'
-      else
+      # if params[:user][:admin_add].to_s=='true'
+      #   render 'users/new'
+      # else
         render 'devise/registrations/new'
-      end
+      # end
     end
   end
 
