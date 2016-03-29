@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new]
   delete '/user/:id', to: 'users#delete', as: 'user'
   devise_for :users, controllers: {registrations: "users/registrations"}
+  post '/add', to: 'users#add'
 end

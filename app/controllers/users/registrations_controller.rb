@@ -10,41 +10,19 @@ before_filter :configure_account_update_params, only: [:update]
 
   # POST /resource
   def create
-    @new_user = User.new(user_params)
+    @user = User.new(user_params)
     if !Invitation.where(email: @user.email).empty?
-      @new_user.invited = true
+      @user.invited = true
       Invitation.where(email: @user.email).first.delete
     end
-    if @new_user.save
-      if params[:user][:admin_add].to_s=='true'
-        redirect_to users_path
-      else
-        sign_in @new_user
-        redirect_to root_path
-      end
+    if @user.save
+      sign_in @user
+      redirect_to root_path
     else
-      if params[:user][:admin_add].to_s=='true'
-        render 'users/new'
-      else
-        render 'devise/registrations/new'
-      end
+      render 'devise/registrations/new'
     end
   end
 
-  # GET /resource/edit
-  def edit
-    super
-  end
-
-  # PUT /resource
-  def update
-    super
-  end
-
-  # DELETE /resource
-  def destroy
-    super
-  end
 
   def user_params
     params.require(:user).permit(:email, :password)

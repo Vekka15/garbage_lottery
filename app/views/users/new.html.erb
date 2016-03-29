@@ -4,7 +4,7 @@
     <center><div class="message-box"><span style="text-transform: capitalize;"><%=attr%></span> <%= msg%></div></center>
     <% end %>
   <%end%>
-  <%= form_for @new_user, url: {:controller=>'users/registrations', :action => 'create'} do |f| %>
+  <%= form_for @new_user, url: {:controller=>'users', :action => 'add'} do |f| %>
     <%= f.hidden_field :admin_add, value: 'true' %>
     <div class="field">
       <%= f.label :email, class: "labels" %><br />
