@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   validate :check_password_confirmation
 
   def check_password_confirmation
-    errors.add(:password, " confirmation != password") if password_confirmation != password
+    errors.add(:password, " confirmation != password") if self.password_confirmation!=self.password
   end
 end

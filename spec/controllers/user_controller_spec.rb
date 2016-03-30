@@ -2,24 +2,15 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "POST #create" do
+
     it "redirects to the home page upon save" do
       post :add, user: attributes_for(:user)
       expect(response).to redirect_to users_path
     end
 
-    it "adding user by admin render /user/new" do
-      post :add, user: attributes_for(:user, email: nil, admin_add: true)
+    it "adding user by admin witf failure render /user/new" do
+      post :add, user: attributes_for(:user, email: nil)
       expect(response).to render_template 'users/new'
-    end
-
-    it "registrating with failure render devise new" do
-      post :add, user: attributes_for(:user, email: nil)
-      expect(response).to render_template 'devise/registrations/new'
-    end
-
-    it "adding user by admin with failure render /user/new" do
-      post :add, user: attributes_for(:user, email: nil)
-      expect(response).to render_template 'devise/registrations/new'
     end
 
     it "add new user with success" do
@@ -30,6 +21,31 @@ RSpec.describe UsersController, type: :controller do
     it "not add new user when failure" do
       post :add, user: attributes_for(:user, email: nil)
       expect(User.count).to eq(0)
+    end
+  end
+
+  describe "DELETE #delete" do
+    it "delete user with success" do
+      @user = create(:user)
+      expect(User.count).to eq(1)
+      delete :delete, id: @user.id
+      expect(User.count).to eq(0)
+    end
+
+    it "change assignations with user delete" do
+      @user = create(:user, email: 'test@prograils.com')
+      @user1 = create(:user, email: 'test1@prograils.com')
+      create(:assignation, user_mail: 'test@prograils.com')
+      create(:assignation, user_mail: 'test@prograils.com')
+      create(:assignation, user_mail: 'test@prograils.com')
+      create(:assignation, user_mail: 'test@prograils.com')
+      create(:assignation, user_mail: 'test@prograils.com')
+      expect(User.count).to eq(2)
+      expect(Assignation.where(user_mail:'test@prograils.com').count).to eq(5)
+      delete :delete, id: @user.id
+      expect(User.count).to eq(1)
+      expect(Assignation.where(user_mail:'test@prograils.com').count).to eq(0)
+      expect(Assignation.where(user_mail:'test1@prograils.com').count).to eq(5)
     end
   end
 
@@ -56,10 +72,9 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template 'index'
     end
 
-    it "redirect to root if no current user" do
+    it "redirect to sign in if no current user" do
       get :index
       expect(response).to redirect_to new_user_session_path
     end
   end
-  
 end

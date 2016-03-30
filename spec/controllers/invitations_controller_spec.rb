@@ -16,6 +16,11 @@ RSpec.describe InvitationsController, type: :controller do
       post :create, invitation: attributes_for(:invitation, email: nil)
       expect(response).to render_template 'new'
     end
+
+    it "rdont add new invitation after failure" do
+      post :create, invitation: attributes_for(:invitation, email: nil)
+      expect(Invitation.count).to eq(0)
+    end
   end
 
   describe "GET #index" do

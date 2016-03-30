@@ -4,6 +4,7 @@
     <center><div class="message-box"><span style="text-transform: capitalize;"><%=attr%></span> <%= msg%></div></center>
     <% end %>
   <%end%>
+
   <%= form_for @new_user, url: {controller: 'users', action: 'add'} do |f| %>
     <div class="field">
       <%= f.label :email, class: "labels" %><br />

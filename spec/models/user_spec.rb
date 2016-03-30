@@ -21,4 +21,12 @@ RSpec.describe User, type: :model do
     expect(create(:user)).to be_valid
     expect(build(:user)).to_not be_valid
   end
+
+  it 'is not valid with not matching passwords' do
+    expect(build(:user, password_confirmation: 'test1234')).to_not be_valid
+  end
+
+  it 'is not valid with too short password' do
+    expect(build(:user, password: 'test')).to_not be_valid
+  end
 end
