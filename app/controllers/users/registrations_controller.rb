@@ -12,7 +12,6 @@ before_filter :configure_account_update_params, only: [:update]
   def create
     @user = User.new(user_params)
     if !Invitation.where(email: @user.email).empty?
-      params[:user][:invited]=true
       @user.invited = true
     end
     if @user.save
@@ -22,6 +21,7 @@ before_filter :configure_account_update_params, only: [:update]
       sign_in @user
       redirect_to root_path
     else
+      params[:user][:invited]=true
       render 'devise/registrations/new', user: {invited: true}
     end
   end
