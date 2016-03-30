@@ -30,9 +30,11 @@ class UsersController < ApplicationController
       @new_user = User.new(user_params)
       if !Invitation.where(email: @new_user.email).empty?
         @new_user.invited = true
-        Invitation.where(email: @new_user.email).first.delete
       end
       if @new_user.save
+        if !Invitation.where(email: @new_user.email).empty?
+          Invitation.where(email: @new_user.email).first.delete
+        end
         InvitationMailer.send_notification_add(@new_user).deliver_now
         redirect_to users_path
       else
