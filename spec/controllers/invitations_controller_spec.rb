@@ -24,9 +24,10 @@ RSpec.describe InvitationsController, type: :controller do
   end
 
   describe "GET #index" do
+
     it "index end with success with current user" do
-      user = create(:user)
-      sign_in user
+      @user = create(:user)
+      sign_in @user
       get :index
       expect(response).to be_success
     end
@@ -38,9 +39,10 @@ RSpec.describe InvitationsController, type: :controller do
   end
 
   describe "GET #new" do
+
     it "render new form with current user and admin" do
-      user = create(:user)
-      sign_in user
+      @user = create(:user)
+      sign_in @user
       get :new
       expect(response).to render_template 'new'
     end

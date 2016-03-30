@@ -20,7 +20,7 @@ class CreateScheduleWorker < AssignationsController
       # create assignment for existing user
       if chosen < all_users.size
         assignation.user_mail = all_users[chosen].email
-      else # create assignment for invited user
+      else # create assignment for invited user but not accepted
         invitation_number = all_members - chosen - 1
         assignation.user_mail = all_invitations[invitation_number].email
       end
