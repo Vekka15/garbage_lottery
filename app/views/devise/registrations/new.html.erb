@@ -8,12 +8,12 @@ aaaaaaaa
 <%= params %>
 <%= form_for(resource, as: resource_name,  url: registration_path(resource_name)) do |f| %>
 
-  <% if !params[:invitation_id].nil? || params[:user][:invited]==true %> <!--clicking in mail link automaticly sets email value in user registration -->
+  <% if !params[:invitation_id].nil? %> <!--clicking in mail link automaticly sets email value in user registration -->
     <%= f.hidden_field :email, value: params[:invitation_id] %>
     <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:invitation_id] %> </div>
     <br>
   <%elsif params[:user][:invited]==true %>
-  <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:user][:email] %> </div>
+  <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%=f.email %> </div>
   <%else%>
     <div class="field">
       <%= f.email_field :email, class: "text_field",placeholder: "Email", autofocus: true %>
