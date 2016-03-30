@@ -26,7 +26,7 @@ before_filter :configure_account_update_params, only: [:update]
 
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :invited)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
   # GET /resource/cancel
@@ -42,7 +42,7 @@ before_filter :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :invited) }
+     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
   end
 
   # If you have extra params to permit, append them to the sanitizer.
