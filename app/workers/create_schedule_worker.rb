@@ -24,7 +24,7 @@ class CreateScheduleWorker < AssignationsController
         invitation_number = all_members - chosen - 1
         assignation.user_mail = all_invitations[invitation_number].email
       end
-      assignation.update_attributes(day: week_start + n.days)
+      assignation.update_attributes(day: week_start + n)
       assignation.save
     end
   end
