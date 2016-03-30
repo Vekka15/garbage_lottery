@@ -14,7 +14,6 @@ before_filter :configure_account_update_params, only: [:update]
     if !Invitation.where(email: @user.email).empty?
       @user.invited = true
       Invitation.where(email: @user.email).first.delete
-      pass_mail = @user.email
     end
     if @user.save
       sign_in @user

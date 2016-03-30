@@ -4,6 +4,8 @@
   <center><div class="message-box"><span style="text-transform: capitalize;"><%=attr%></span> <%= msg%></div></center>
   <% end %>
 <%end%>
+aaaaaaaa
+<%= params %>
 <%= form_for(resource, as: resource_name,  url: registration_path(resource_name)) do |f| %>
 
   <% if !params[:invitation_id].nil? || params[:invited]==true %> <!--clicking in mail link automaticly sets email value in user registration -->
