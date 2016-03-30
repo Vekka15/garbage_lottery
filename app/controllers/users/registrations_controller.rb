@@ -6,7 +6,6 @@ before_filter :configure_account_update_params, only: [:update]
   # GET /resource/sign_up
   def new
     super
-
   end
 
   # POST /resource
@@ -22,7 +21,7 @@ before_filter :configure_account_update_params, only: [:update]
       sign_in @user
       redirect_to root_path
     else
-      params[:user][:invited]=@user.invited
+      params[:invited]=true
       render 'devise/registrations/new'
     end
   end
