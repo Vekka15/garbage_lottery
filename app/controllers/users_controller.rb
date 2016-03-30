@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       if !Invitation.where(email: @new_user.email).empty?
         @new_user.invited = true
         Invitation.where(email: @new_user.email).first.delete
+        params[:invitation_id]=@new_user.email
       end
       if @new_user.save
         InvitationMailer.send_notification_add(@new_user).deliver_now
