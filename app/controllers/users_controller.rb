@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def index
     if current_user.nil?
       redirect_to new_user_session_path
@@ -33,11 +35,7 @@ class UsersController < ApplicationController
       InvitationMailer.send_notification_add(@new_user).deliver_now
       redirect_to users_path
     else
-      if params[:user][:admin_add].to_s=='true'
-        render 'users/new'
-      else
-        render 'devise/registrations/new'
-      end
+      render 'users/new'
     end
   end
 
@@ -71,6 +69,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
+
 
 
 end

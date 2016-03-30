@@ -1,10 +1,13 @@
 <body>
-  <% if Assignation.where(day: Date.today).first.user_mail == current_user.email %>
-<div style="margin-top: 10%">  <span style="color: #b62020; font-size: 20px; font-weight:bold; background-color: #fe8181;  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important; padding-left:10%; padding-right: 10%; padding-top: 10px; padding-bottom: 10px;" >
-    Today it is your turn to throw garbage away
-  </span></div>
-  <% end %>
 
+  <!--notification to the user that should throw garbage today  -->
+  <% if Assignation.where(day: Date.today).first.user_mail == current_user.email %>
+    <div style="margin-top: 10%">
+      <span style="color: #b62020; font-size: 20px; font-weight:bold; background-color: #fe8181;  box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important; padding-left:10%; padding-right: 10%; padding-top: 10px; padding-bottom: 10px;" >
+        Today it is your turn to throw garbage away
+      </span>
+    </div>
+  <% end %>
   <table align="center" style="margin-top: 10%">
   <tr>
     <th>Monday</th>
@@ -18,17 +21,20 @@
 <% if current_user.nil? %>
 <%else %>
   <tr>
-  <% (@begin.at_beginning_of_week..@begin.at_beginning_of_week+6).each do |d| %>
-    <td style="background-color: #52bf90; color: white;"><%= d %> </td>
+    <!-- date row -->
+  <% (@begin..@begin+6).each do |d| %>
+    <td style="background-color: #52bf90; color: white;"><%= d.strftime('%d-%m-%Y') %> </td>
   <% end %>
   </tr>
   <tr>
+    <!-- assignation row -->
     <% (@begin.at_beginning_of_week..@begin.at_beginning_of_week+6).each do |d| %>
+      <!--grey style for past days  -->
       <% if d<Date.today %>
         <td style="background-color:rgba(0,0,0,0.40); color: rgba(0,0,0,0.15); padding-top: 50px;padding-bottom: 50px"><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
-      <%elsif d==Date.today%>
+      <%elsif d==Date.today%> <!-- red style for current day -->
         <td style="background-color: #ff6f69; padding-top: 50px;padding-bottom: 50px"><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
-      <%else%>
+      <%else%> <!-- white style for future days -->
         <td><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
       <% end %>
     <% end %>

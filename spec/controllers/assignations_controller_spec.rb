@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AssignationsController, type: :controller do
-  describe "POST #create" do
+  describe "GET #index" do
     it "index end with success with current user" do
       user = create(:user)
       sign_in user

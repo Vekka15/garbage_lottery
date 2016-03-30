@@ -7,10 +7,9 @@
 <%end%>
 <br>
 <%= form_for @new_invitation do |i| %>
- <%= i.label "Email", class: "labels"%><br>
+ <div><%= i.label "Email", class: "labels"%></div>
  <div><%= i.text_field :email, class: "text_field" %> </div>
  <div><%= i.submit "Send", class: "login_submit" %></div>
-
 <%end%>
 </div>
 </body>

@@ -5,11 +5,13 @@
     <th> When </th>
     <th> Status </th>
   </tr>
+  <!-- info if there is no invitations -->
   <% if @invitations.empty? && User.where(invited: true).empty? %>
   <tr>
     <td colspan="3"> You have no invitations in history </td>
   </tr>
   <%end%>
+  <!-- showing invitations that have been accepted = users with invated true -->
 <% @user.each do |u| %>
   <% if !u.invited.nil? %>
   <tr>
@@ -19,6 +21,7 @@
   </tr>
   <%end%>
 <%end%>
+<!-- showing invitations with unknown status  -->
 <% @invitations.each do |i| %>
   <tr>
     <td><%= i.email %> </td>

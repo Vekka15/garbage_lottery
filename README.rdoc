@@ -20,7 +20,7 @@ Po tym jak pracownik przeczyta zaproszenie, kliknie w link i ukończy rejestracj
 
 3) Dodawanie użytkowników.
 Dodałam też funkcjonalność, że admin może bezpośrednio dodawać użytkowników. Po przejściu do odpowiedniego formularza w panelu administratora admin może ustawić email użytkownika oraz jego hasło. Email ponownie podlega pełnej weryfikacji.
-Po zaakceptowaniu formularza, tworzony jest nowy użytkownik oraz na podany adres email przesyłana jest wiadomość o utworzeniu konta danemu pracownikowi wraz ze wszystkimi ważnymi informacjami.
+Po zaakceptowaniu formularza, tworzony jest nowy użytkownik oraz na podany adres email przesyłana jest wiadomość o utworzeniu konta danemu pracownikowi wraz ze wszystkimi ważnymi informacjami. Różni się od zaproszenia tym, że tam użytkownik ostatecznie podejmuje decyzje o założeniu konta, a tutaj zostaje postawiony przed faktem dodkonanym.
 
 4) Usuwanie użytkowników.
 Admin ma też możliwość usuwania użytkowników. Wiąże się to z sytuacją, gdy jakiś pracownik zostaje zwolniony lub sam się zwalnia i nie będzie wyrzucać już śmieci. W takim wypadku admin klika na odpowiedni przycisk użytkownik zostaje usunięty, a w planie jego przypisy do poszczególnych dni zastąpione zostają innym nowo wylosowanych pracownikiem.
