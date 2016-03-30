@@ -21,7 +21,7 @@ before_filter :configure_account_update_params, only: [:update]
       sign_in @user
       redirect_to root_path
     else
-      params[:invited]=true
+      params[:invited]=@user.invited
       render 'devise/registrations/new'
     end
   end
