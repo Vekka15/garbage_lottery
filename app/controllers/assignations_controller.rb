@@ -3,7 +3,7 @@ class AssignationsController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path
     else
-      @begin = Date.today.at_beginning_of_week
+      @begin = Time.now.in_time_zone('Poland').to_date.at_beginning_of_week
     end
   end
 

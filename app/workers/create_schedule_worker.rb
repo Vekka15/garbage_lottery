@@ -6,7 +6,7 @@ class CreateScheduleWorker < AssignationsController
     all_invitations = Invitation.all
     all_assignations = Assignation.all
     all_members = all_users.size + all_invitations.size
-    today = Date.today
+    today = Time.now.in_time_zone('Poland').to_date
     # for now only for test normaly today + time
     week_start = today.at_beginning_of_week
     # delete all old assignments
