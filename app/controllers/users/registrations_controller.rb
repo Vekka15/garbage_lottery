@@ -14,12 +14,13 @@ before_filter :configure_account_update_params, only: [:update]
     if !Invitation.where(email: @user.email).empty?
       @user.invited = true
       Invitation.where(email: @user.email).first.delete
+      pass_mail = @user.email
     end
     if @user.save
       sign_in @user
       redirect_to root_path
     else
-      render 'devise/registrations/new', invitation_id: @user.email
+      render 'devise/registrations/new', params:{ invitation_id: pass_mail}
     end
   end
 
