@@ -3,6 +3,7 @@ class AssignationsController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path
     else
+      @begin = Date.today
       @assignations = Assignation.all
     end
   end

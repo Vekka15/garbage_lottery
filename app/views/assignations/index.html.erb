@@ -18,20 +18,20 @@
 <% if current_user.nil? %>
 <%else %>
   <tr>
-  <% @assignations.each do |a| %>
-    <td style="background-color: #52bf90; color: white;"><%= a.day.strftime('%d-%m-%Y') %> </td>
-  <%end%>
+  <% (@begin.at_beginning_of_week..@begin.at_beginning_of_week+6).each do |d| %>
+    <td style="background-color: #52bf90; color: white;"><%= d %> </td>
+  <% end %>
   </tr>
   <tr>
-  <% @assignations.each do |a| %>
-    <% if a.day<Date.today %>
-      <td style="background-color:rgba(0,0,0,0.40); color: rgba(0,0,0,0.15); padding-top: 50px;padding-bottom: 50px"><%= a.user_mail[/[^@]+/] %></td>
-    <%elsif a.day==Date.today%>
-    <td style="background-color: #ff6f69; padding-top: 50px;padding-bottom: 50px"><%= a.user_mail[/[^@]+/] %></td>
-    <%else%>
-      <td><%= a.user_mail[/[^@]+/] %> </td>
+    <% (@begin.at_beginning_of_week..@begin.at_beginning_of_week+6).each do |d| %>
+      <% if d<Date.today %>
+        <td style="background-color:rgba(0,0,0,0.40); color: rgba(0,0,0,0.15); padding-top: 50px;padding-bottom: 50px"><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
+      <%elsif d==Date.today%>
+        <td style="background-color: #ff6f69; padding-top: 50px;padding-bottom: 50px"><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
+      <%else%>
+        <td><%= Assignation.where(day: d).first.user_mail[/[^@]+/] %></td>
+      <% end %>
     <% end %>
-  <%end%>
 </tr>
 
 <%end%>
