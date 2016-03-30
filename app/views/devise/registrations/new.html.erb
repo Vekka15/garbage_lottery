@@ -13,7 +13,7 @@ aaaaaaaa
     <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:invitation_id] %> </div>
     <br>
   <%elsif params[:user][:invited]==true %>
-  <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%=f.email %> </div>
+  <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:user][:email] %> </div>
   <%else%>
     <div class="field">
       <%= f.email_field :email, class: "text_field",placeholder: "Email", autofocus: true %>
