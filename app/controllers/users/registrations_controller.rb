@@ -25,7 +25,7 @@ before_filter :configure_account_update_params, only: [:update]
 
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation, :invited)
   end
 
   # GET /resource/cancel
