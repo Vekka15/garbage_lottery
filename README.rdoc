@@ -15,7 +15,7 @@ Dwie kolejne możliwości są ściśle administracyjne i nie mają większego zw
 
 2) Zapraszanie użytkowników.
 Wybrałam tutaj podejście gdzie administrator wpisuje adres email użytkownika którego chce zaprosić. Mogą to być tylko maile z domeną .prograils.com oraz takie dla którego nie istnieje użytkownik, ani inne zaproszenie.
-Po zaakceptowaniu na podany adres wysyłany jest mail z linkiem do zarejestrowania użytkownika oraz jednocześnie w podgladzie w panelu admina > invitations możemy zobaczyć utworzone zaproszenie wraz ze statusem, który w momencie powstania jest nieznany.  Od zwykłej rejestracji różni się on tym, że nie można zedytować maila. Adres na który zostało wysłane zaproszenie musi być mailem użytkownika. Wiąże się to z tym, że to jest dedykowane zaproszenie dla konkretnego pracownika i nie chcemy, żeby wysyłał on linki do innych pracowników.
+Po zaakceptowaniu na podany adres wysyłany jest mail z linkiem do zarejestrowania użytkownika oraz jednocześnie w podgladzie w panelu admina > invitations możemy zobaczyć utworzone zaproszenie wraz ze statusem, który w momencie powstania jest nieznany.  Od zwykłej rejestracji różni się on tym, że nie można zedytować maila. Adres na który zostało wysłane zaproszenie musi być mailem użytkownika. Wiąże się to z tym, że to jest dedykowane zaproszenie dla konkretnego pracownika i nie chcemy, żeby z jego linku mogły korzystać inne osoby.
 Po tym jak pracownik przeczyta zaproszenie, kliknie w link i ukończy rejestracje tworzy się jego konto, a zaproszenie w bazie danych zostaje usunięte. Jednocześnie status zaproszenia w panelu admina > invitations zmienia się na zaakceptowane.
 
 3) Dodawanie użytkowników.
