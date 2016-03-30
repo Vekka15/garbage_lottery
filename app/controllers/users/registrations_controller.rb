@@ -20,7 +20,7 @@ before_filter :configure_account_update_params, only: [:update]
       sign_in @user
       redirect_to root_path
     else
-      render 'devise/registrations/new', params:{ invitation_id: pass_mail}
+      render 'devise/registrations/new'
     end
   end
 
