@@ -23,6 +23,7 @@ before_filter :configure_account_update_params, only: [:update]
       redirect_to root_path
     else
       params[:invited]=@user.invited #allow us to stay with uneditable email in view
+      params[:user][:email]=@user.email
       render 'devise/registrations/new'
     end
   end
