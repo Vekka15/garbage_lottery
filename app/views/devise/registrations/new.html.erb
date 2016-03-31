@@ -12,6 +12,7 @@
     <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:invitation_id] %> </div>
     <br>
   <%elsif !params[:invited].nil? %>
+      <%= f.hidden_field :email, value: params[:user][:email] %>
       <div style="font-size: 25px; color: white"> <span style="color: #52bf90">Your email:</span> <%= params[:user][:email] %> </div>
   <%else%>
     <div class="field">
